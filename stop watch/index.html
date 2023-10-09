@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container" >
+<h1 class="heading" > The Stop Watch:</h1>
+<p> <span id="second" >00</span><span id="tens" >00</span> </p>
+<button id="btn-start" > start </button>
+<button id="btn-stop" >stop</button>
+<button id="btn-reset" >reset</button>
+
+
+
+    </div>
+    <script>var seconds=00;
+        var tens=00;
+        var outputsecond=document.getElementById("second");
+        var outputTens=document.getElementById("tens");
+        var buttonstart=document.getElementById("btn-start");
+        var buttonstop=document.getElementById("btn-stop");
+        var buttonreset=document.getElementById("btn-reset");
+        var Interval;
+        buttonstart.addEventListener( 'click',()=>{
+        clearInterval(Interval);
+        Interval=setInterval(startTime,10)
+        });
+        buttonstop.addEventListener('click',()=>{
+        clearInterval(Interval);
+        
+        });
+        buttonreset.addEventListener('click',()=>{
+        clearInterval(Interval);
+        tens="00"
+        seconds="00"
+        outputsecond.innerHTML=seconds;
+        outputTens.innerHTML=tens;
+        
+        
+        });
+        function startTime(){
+        tens++;
+        if (tens <=9){outputTens.innerHTML="0"+tens;}
+        if (tens>9){outputTens.innerHTML=tens;}
+        
+        }
+        if(tens>99){
+        seconds++;
+        outputsecond.innerHTML='0'+seconds;
+        tens=0;
+        outputTens.innerHTML='0'+tens;
+        
+        }
+        if( seconds>9 ){
+        outputsecond.innerHTML=seconds
+        
+        }</script>
+</body>
+</html>
